@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+
+
+@tailwind utilities;
+@layer components {
+  .slider-btn {
+    @apply clear-both absolute top-0 bottom-0 p-[1rem]
+    cursor-pointer hover:bg-black/10 transition-colors delay-100 ease-in-out;
+  }
+  .slider-btn > * {
+    @apply stroke-white fill-black w-[2rem] h-[2rem]
+  }
+}
+.image-slider-item {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: translate 300ms ease-in-out;
+}
+.tab-item {
+  display: inline-block;
+  width: calc(25% - 8px);
+  margin: 0 2px;
+}
+.tab-item-btn {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border: 0;
+  background-color: #ccc;
+  font-size: 0;
+}
+.tab-item-btn::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    width: 0%;
+    height: 100%;
+}
+
+.item-active.tab-item-btn::after {
+  background-color: #000;
+  animation: progress 2.5s linear forwards;
+}
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  
+  to {
+    width: 100%;
+  }
+}
